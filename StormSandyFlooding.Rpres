@@ -1,0 +1,41 @@
+Storm Sandy Flooding
+========================================================
+author: Elek J. Dobos
+date: 11-Feb-2017
+autosize: true
+
+Summary Description
+========================================================
+
+A dataset was provided by NOAA - National Weather Service (NWS). The dataset pertains to 
+Super Storm Sandy that impacted the Eastern United States during October 2012. 
+The scatterplot is attempting to plot the relationship between the wind velocity and 
+flooding levels. The data set did not contain wind direction, however, the storm was
+traveling from the SouthWest to North, NorthEast area until it was off the Delaware, New Jersey Coast.  The storm then did a rare type of turn by traveling in a Westward direction, and pushing the water from the Atlantic Ocean towards associated aquatic tributaries such as bays, rivers, and streams.  Of course rain contributed to the flooding as did a Full Moon cycle was at its peak when the storm made impact.
+
+Slide With Code
+========================================================
+
+```{r}
+options(warn=-1)
+# Load the necessary libaries 
+library(knitr)
+library(plotly)
+library(ggplot2)
+
+# The data was previously downloaded from NOAA-NWS and read in from our default directory.
+# Read in our data set.
+
+stormData <- read.csv(file="./FilteredHWMs.csv", header=TRUE)
+p=plot_ly(stormData, y = ~elev_ft, x= ~wind, mode = "markers", color = ~elev_ft)
+htmlwidgets::saveWidget(as.widget(p), file = "demo.html")
+```
+
+Slide With Plot
+========================================================
+
+```{r}
+
+```
+
+<iframe src="demo.html" style="position:absolute;height:100%;width:100%"></iframe>
